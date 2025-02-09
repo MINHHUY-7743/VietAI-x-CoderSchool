@@ -12,20 +12,11 @@ from sklearn.model_selection import GridSearchCV
 file_path = 'web-traffic.csv'
 data = pd.read_csv(file_path)
 
-# Plot figure
-#conver to time stemp
-# use pandas.to_datetime
 data["date"] = pd.to_datetime(data["date"], format='%d/%m/%y', errors='coerce')
 # print(data.info())
 
-# xử lí các ô khuyết
 data["date"] = data["date"].interpolate()
 
-# fig, ax = plt.subplots()
-# ax.plot(data["date"], data["users"])# truc hoanh, tung
-# ax.set_xlabel("date")
-# ax.set_ylabel("users")
-# plt.show()
 
 def create_ts_data(data, window_size):
     i = 1
